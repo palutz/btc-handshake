@@ -44,6 +44,7 @@ pub trait Checksum {
 /// Almost all integers are encoded in little endian. Only IP or port number are encoded big endian.
 /// *********************************************************
 
+#[derive(Debug)]
 pub struct VersionMessage {
     pub protocol_version: i32,
     pub service: u64,
@@ -188,7 +189,7 @@ impl CommandMessage for VerackMessage {
 } 
 
 impl RawMessage for VerackMessage {
-    fn from_rawmessage(msg: &Vec<u8>) -> Result<Box<Self>, Error> {
+    fn from_rawmessage(_msg: &Vec<u8>) -> Result<Box<Self>, Error> {
         Ok(Box::new(VerackMessage {}))
     }
 

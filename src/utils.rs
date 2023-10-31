@@ -53,6 +53,7 @@ pub fn read_drop_slice(buff: &Vec<u8>, size: usize) -> Result<(&[u8], Vec<u8>), 
     }
 }
 
+// An attempt of a generic BigEndian/LittleEndian parser for numeric types
 pub trait FromEndian {
     fn from_be(msg: &[u8]) -> Self
     where
